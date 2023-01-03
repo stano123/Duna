@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="db/increments/1/db-1--01-type.xml" />
+    <include file="db/increments/1/db-1--02-special_function_type.xml" />
+    <include file="db/increments/1/db-1--03-special_function.xml" />
+    <include file="db/increments/1/db-1--04-hagal_card.xml"/>
+    <include file="db/increments/1/db-1--05-hagal_function.xml"/>
+
+</databaseChangeLog>
