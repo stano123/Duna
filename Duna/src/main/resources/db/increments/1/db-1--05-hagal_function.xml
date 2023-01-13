@@ -1,0 +1,27 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1--05-1" author="Stanislav Kohan">
+        <createTable tableName="HAGAL_FUNCTION">
+            <column name="ID" type="INT(10)">
+                <constraints nullable="false" primaryKeyName="PK_HAGAL_FUNCTION" />
+            </column>
+            <column name="HAGAL_CARD_ID" type="INT(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="SPECIAL_FUNCTION_ID" type="INT(10)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="HAGAL_FUNCTION" columnNames="ID" />
+        <addForeignKeyConstraint baseTableName="HAGAL_FUNCTION" baseColumnNames="HAGAL_CARD_ID" constraintName="FK_HAGAL_CARD" referencedTableName="HAGAL_CARD"
+                                 referencedColumnNames="ID" />
+        <addForeignKeyConstraint baseTableName="HAGAL_FUNCTION" baseColumnNames="SPECIAL_FUNCTION_ID" constraintName="FK_SPECIAL_FUNCTION" referencedTableName="SPECIAL_FUNCTION"
+                                 referencedColumnNames="ID" />
+        <createSequence sequenceName="SEQ_HAGAL_FUNCTION_ID" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+</databaseChangeLog>

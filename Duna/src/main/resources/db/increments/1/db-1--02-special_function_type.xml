@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1--02-1" author="Stanislav Kohan">
+        <createTable tableName="SPECIAL_FUNCTION_TYPE">
+            <column name="ID" type="INT(10)">
+                <constraints nullable="false" primaryKeyName="PK_SPECIAL_FUNCTION_TYPE" />
+            </column>
+            <column name="NAME" type="VARCHAR(30)" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="SPECIAL_FUNCTION_TYPE" columnNames="ID" />
+        <createSequence sequenceName="SEQ_SPECIAL_FUNCTION_TYPE_ID" startValue="1" incrementBy="1"/>
+
+    </changeSet>
+</databaseChangeLog>

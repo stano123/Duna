@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1--04-1" author="Stanislav Kohan">
+        <createTable tableName="HAGAL_CARD">
+            <column name="ID" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NUMBER_OF_SWORDS" type="INT(2)" />
+            <column name="IS_FIGHT" type="BOOLEAN" />
+            <column name="TYPE_ID" type="INT(10)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="NUMBER_OF_PLAYERS" type="INT(1)" defaultValue="0" />
+            <column name="COUNT" type="INT(1)" defaultValue="1" />
+        </createTable>
+        <addPrimaryKey tableName="HAGAL_CARD" columnNames="ID" constraintName="PK_HAGAL_CARD" />
+        <addForeignKeyConstraint baseTableName="HAGAL_CARD" baseColumnNames="TYPE_ID"
+                                 referencedTableName="TYPE" referencedColumnNames="ID"
+                                 constraintName="FK_TYPE_ID"/>
+        <createSequence sequenceName="SEQ_HAGAL_CARD_ID" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+</databaseChangeLog>

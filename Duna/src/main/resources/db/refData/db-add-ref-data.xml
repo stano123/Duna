@@ -1,0 +1,64 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="Stanislav Khan" id="add-type" runOnChange="true">
+        <delete tableName="TYPE"/>
+        <loadUpdateData
+                primaryKey="ID"
+                file="db/refdata/type.csv"
+                tableName="TYPE">
+            <column name="NAME" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet author="Stanislav Khan" id="add-spec-fun-type" runOnChange="true">
+        <delete tableName="SPECIAL_FUNCTION_TYPE"/>
+        <loadUpdateData
+                primaryKey="ID"
+                file="db/refdata/special_function_type.csv"
+                tableName="SPECIAL_FUNCTION_TYPE">
+            <column name="NAME" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet author="Stanislav Khan" id="add-spec-fun" runOnChange="true">
+        <delete tableName="SPECIAL_FUNCTION"/>
+        <loadUpdateData
+                primaryKey="ID"
+                file="db/refdata/special_function.csv"
+                tableName="SPECIAL_FUNCTION">
+            <column name="SPECIAL_FUNCTION_TYPE_ID" type="STRING"/>
+            <column name="UNITS" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet author="Stanislav Khan" id="add-hagal-card" runOnChange="true">
+        <delete tableName="HAGAL_CARD"/>
+        <loadUpdateData
+                primaryKey="ID"
+                file="db/refdata/hagal_card.csv"
+                tableName="HAGAL_CARD">
+            <column name="NAME" type="STRING"/>
+            <column name="NUMBER_OF_PLAYERS" type="STRING"/>
+            <column name="NUMBER_OF_SWORDS" type="STRING"/>
+            <column name="IS_FIGHT" type="STRING"/>
+            <column name="COUNT" type="STRING"/>
+            <column name="TYPE_ID" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet author="Stanislav Khan" id="add-hagal-fun" runOnChange="true">
+        <delete tableName="HAGAL_FUNCTION"/>
+        <loadUpdateData
+                primaryKey="ID"
+                file="db/refdata/hagal_function.csv"
+                tableName="HAGAL_FUNCTION">
+            <column name="HAGAL_CARD_ID" type="STRING"/>
+            <column name="SPECIAL_FUNCTION_ID" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+
+</databaseChangeLog>
