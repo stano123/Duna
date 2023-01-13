@@ -46,7 +46,7 @@ public class HagalCard implements Serializable {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "HAGAL_FUNCTION",
             joinColumns = { @JoinColumn(name = "HAGAL_CARD_ID") }, inverseJoinColumns = { @JoinColumn(name = "SPECIAL_FUNCTION_ID") }
